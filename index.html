@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Redirect</title>
-    <script type="text/javascript">
-        // Redirect immediately when the page loads
-        window.onload = function() {
-            window.location.href = "https://t.me/SFAEarnings"; // Change this to the link you want
-        };
+    <title>Redirecting...</title>
+    <script>
+        const whatsappNumbers = [
+            "918401305471",
+            "919535984773",
+            "916376185592",
+            "918770903934",
+            "919177693882",
+            "919044388657",
+            "919664103113",
+            "919160133193",
+            "919571879011",
+            "919660683622",
+            "919906905797",
+            "917054880661"
+        ];
 
-         // window.onload = function() {
-            // window.location.href = "workfromathomeredirect"; // Change this to the link you want
-        // }; 
+        function redirectToSavedOrRandomNumber() {
+            // Check if number is already saved
+            let savedNumber = localStorage.getItem('selectedWhatsappNumber');
+
+            if (!savedNumber) {
+                // If not saved, pick random
+                let randomIndex = Math.floor(Math.random() * whatsappNumbers.length);
+                savedNumber = whatsappNumbers[randomIndex];
+                localStorage.setItem('selectedWhatsappNumber', savedNumber);
+            }
+
+            // Redirect to saved number
+            window.location.href = "https://wa.me/" + savedNumber;
+        }
+
+        window.onload = redirectToSavedOrRandomNumber;
     </script>
 </head>
 <body>
-    <!-- No content in the body -->
+    <p>Redirecting to WhatsApp...</p>
 </body>
 </html>
